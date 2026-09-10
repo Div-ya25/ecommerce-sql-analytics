@@ -192,7 +192,7 @@ GROUP BY DATE_FORMAT(order_date, '%Y-%m');
 * **GitHub** — Project documentation and version control
 
 ---
-```markdown
+
 ## 📁 Project Structure
 
 ecommerce-sql-analytics/
