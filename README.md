@@ -195,13 +195,11 @@ GROUP BY DATE_FORMAT(order_date, '%Y-%m');
 ```markdown
 ## 📁 Project Structure
 
-```text
 ecommerce-sql-analytics/
 │
 ├── README.md
 └── ecommerce_analytics.sql
 
-```
 ---
 
 ## 💡 Key Learning Outcomes
@@ -213,13 +211,10 @@ Through this project, I strengthened my understanding of:
 * Using aggregate functions for business analysis
 * Combining tables using joins
 * Filtering grouped data using `HAVING`
-* Writing nested subqueries
-* Creating and using CTEs
+* Writing subqueries and CTEs
 * Applying window functions for ranking and row-level analysis
-* Creating reusable SQL views
-* Creating stored procedures
+* Creating reusable SQL views and stored procedures
 * Structuring SQL code for a portfolio project
-
 
 ---
 
