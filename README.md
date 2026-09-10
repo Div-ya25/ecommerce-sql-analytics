@@ -165,59 +165,6 @@ The project uses a custom-built e-commerce dataset created for SQL learning and 
 
 ---
 
-## 🔎 Business Questions
-
-The project answers **26 business questions**.
-
-### Beginner Analysis
-
-1. List all customers who are from Kochi.
-2. Find all orders placed in 2026.
-3. Find the 10 most expensive orders.
-4. Find all customers who signed up in 2025.
-5. List all delivered orders.
-
-### Intermediate Analysis
-
-6. What is the total revenue generated so far?
-7. Who are the top 5 customers based on total amount spent?
-8. What is the average order value by city?
-9. How many orders are there for each order status?
-10. Find customers who have placed more than one order.
-11. Which city generates the highest total revenue?
-12. Find the total revenue generated for each order status.
-13. What is the average order amount for each order status?
-14. Find customers whose total spending is greater than ₹10,000.
-
-### CASE Statement Analysis
-
-15. Classify orders into High Value, Medium Value, and Low Value.
-16. Count High Value, Medium Value, and Low Value orders.
-17. Classify customers based on their total spending.
-
-### Subquery Analysis
-
-18. Find customers whose spending is greater than the average customer spending.
-19. Find the customer who placed the highest-value single order.
-20. Find all orders whose amount is greater than the average order amount.
-
-### CTE Analysis
-
-21. Find the top 5 customers by total spending using a CTE.
-22. Find the month with the highest total revenue using a CTE.
-
-### Window Function Analysis
-
-23. Rank customers by total spending using `RANK()`.
-24. Find each customer's first and most recent order using `ROW_NUMBER()`.
-
-### SQL Objects
-
-25. Create a `monthly_sales_summary` view.
-26. Create a stored procedure `get_customer_history(customer_id)`.
-
----
-
 ## 📈 Monthly Revenue Analysis
 
 The project includes a `monthly_sales_summary` view that calculates:
@@ -236,111 +183,6 @@ SELECT
 FROM orders
 GROUP BY DATE_FORMAT(order_date, '%Y-%m');
 ```
-
-### Monthly Revenue Chart
-
-```mermaid
-xychart-beta
-    title "Monthly Revenue"
-    x-axis ["Jan-25","Feb-25","Mar-25","Apr-25","May-25","Jun-25","Jul-25","Aug-25","Sep-25","Oct-25","Nov-25","Dec-25","Jan-26","Feb-26","Mar-26","Apr-26","May-26","Jun-26","Jul-26","Aug-26"]
-    y-axis "Revenue (₹)" 0 --> 35000
-    line [2499,1599,7799,4698,7298,5698,6098,12197,6998,6498,12097,12797,9897,12797,11996,15796,18496,15696,19795,30992]
-```
-
-> The monthly values in this chart are calculated from the `orders` data included in this project.
-
----
-
-## ⭐ Featured SQL Queries
-
-### 1. Top 5 Customers by Total Spending
-
-```sql
-WITH total_spending AS (
-    SELECT
-        customer_id,
-        SUM(amount) AS total_amount
-    FROM orders
-    GROUP BY customer_id
-)
-SELECT *
-FROM total_spending
-ORDER BY total_amount DESC
-LIMIT 5;
-```
-
-### 2. Customers Spending Above Average
-
-```sql
-SELECT
-    customer_id,
-    SUM(amount) AS total_amount
-FROM orders
-GROUP BY customer_id
-HAVING SUM(amount) > (
-    SELECT AVG(total_amount)
-    FROM (
-        SELECT
-            customer_id,
-            SUM(amount) AS total_amount
-        FROM orders
-        GROUP BY customer_id
-    ) AS customer_spending
-);
-```
-
-### 3. Customer Ranking Using a Window Function
-
-```sql
-SELECT
-    customer_id,
-    SUM(amount) AS total_amount,
-    RANK() OVER (
-        ORDER BY SUM(amount) DESC
-    ) AS spending_rank
-FROM orders
-GROUP BY customer_id
-ORDER BY spending_rank;
-```
-
-### 4. Monthly Revenue Using a CTE
-
-```sql
-WITH monthly_revenue AS (
-    SELECT
-        DATE_FORMAT(order_date, '%Y-%m') AS month,
-        SUM(amount) AS total_revenue
-    FROM orders
-    GROUP BY DATE_FORMAT(order_date, '%Y-%m')
-)
-SELECT
-    month,
-    total_revenue
-FROM monthly_revenue
-ORDER BY total_revenue DESC
-LIMIT 1;
-```
-
-### 5. Customer Order History Stored Procedure
-
-```sql
-DELIMITER //
-
-CREATE PROCEDURE get_customer_history(IN p_customer_id INT)
-BEGIN
-    SELECT
-        order_id,
-        order_date,
-        status,
-        amount
-    FROM orders
-    WHERE customer_id = p_customer_id
-    ORDER BY order_date;
-END //
-
-DELIMITER ;
-```
-
 ---
 
 ## 🛠️ Tools Used
@@ -350,24 +192,16 @@ DELIMITER ;
 * **GitHub** — Project documentation and version control
 
 ---
-
+```markdown
 ## 📁 Project Structure
 
 ```text
 ecommerce-sql-analytics/
 │
 ├── README.md
-│
-├── ecommerce_analytics.sql
-│
-└── screenshots/
-    ├── q07_top_customers.png
-    ├── q18_above_average_customers.png
-    ├── q22_monthly_revenue.png
-    ├── q23_customer_ranking.png
-    └── q25_monthly_sales_view.png
-```
+└── ecommerce_analytics.sql
 
+```
 ---
 
 ## 💡 Key Learning Outcomes
@@ -386,18 +220,6 @@ Through this project, I strengthened my understanding of:
 * Creating stored procedures
 * Structuring SQL code for a portfolio project
 
----
-
-## 🚀 Future Improvements
-
-Possible future improvements include:
-
-* Connecting orders to products through an `order_items` table
-* Adding product-level sales analysis
-* Adding seller-level revenue analysis
-* Creating an interactive dashboard using Power BI or Tableau
-* Adding more advanced customer segmentation
-* Adding additional business KPIs
 
 ---
 
@@ -425,11 +247,7 @@ This project was developed as part of my learning journey in Data Analytics with
 
 ## 📫 Connect With Me
 
-* LinkedIn: *Add your LinkedIn profile link here*
-* GitHub: *Add your GitHub profile link here*
+* LinkedIn: https://www.linkedin.com/in/divya-sree-6a268a2a3
+* GitHub: https://github.com/Div-ya25
 
----
 
-### ⭐ If you find this project useful
-
-Feel free to explore the SQL queries and analysis included in this repository.
