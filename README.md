@@ -182,6 +182,7 @@ SELECT
     AVG(amount) AS average_order_value
 FROM orders
 GROUP BY DATE_FORMAT(order_date, '%Y-%m');
+---
 ```
 
 ---
