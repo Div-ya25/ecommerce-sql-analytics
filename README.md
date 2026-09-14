@@ -47,11 +47,10 @@ ecommerce_analytics
 | `payments`  | Payment details associated with orders               |
 
 ### ER Diagram
-
 ```mermaid
 erDiagram
     CUSTOMERS ||--o{ ORDERS : places
-    ORDERS ||--o| PAYMENTS : has
+    ORDERS ||--o{ PAYMENTS : has
     SELLERS ||--o{ PRODUCTS : sells
 
     CUSTOMERS {
@@ -65,23 +64,7 @@ erDiagram
         INT order_id PK
         INT customer_id FK
         DATE order_date
-        VARCHAR status
         DECIMAL amount
-    }
-
-    SELLERS {
-        INT seller_id PK
-        VARCHAR seller_name
-        VARCHAR city
-        DECIMAL rating
-    }
-
-    PRODUCTS {
-        INT product_id PK
-        VARCHAR product_name
-        VARCHAR category
-        DECIMAL price
-        INT seller_id FK
     }
 
     PAYMENTS {
@@ -91,6 +74,19 @@ erDiagram
         DATE payment_date
         DECIMAL payment_amount
     }
+
+    SELLERS {
+        INT seller_id PK
+        VARCHAR seller_name
+    }
+
+    PRODUCTS {
+        INT product_id PK
+        INT seller_id FK
+        VARCHAR product_name
+        DECIMAL price
+    }
+
 ```
 > **Note:** The current project schema connects `customers → orders`, `orders → payments`, and `sellers → products`. The `orders` table does not currently contain a product/order-item relationship, so the main analytical questions focus on customer and order data.
 
