@@ -95,19 +95,19 @@ erDiagram
 ```
 > **Note:** The current project schema connects `customers → orders`, `orders → payments`, and `sellers → products`. The `orders` table does not currently contain a product/order-item relationship, so the main analytical questions focus on customer and order data.
 
-
 ---
+
 ## 📊 Dataset
 
 The project uses a custom-built e-commerce dataset created for SQL learning and portfolio practice.
 
-### Dataset size
+### Dataset Size
 
-* **30 customers**
-* **60 orders**
-* **10 sellers**
-* **20 products**
-* **60 payments**
+- **30 customers**
+- **60 orders**
+- **10 sellers**
+- **20 products**
+- **60 payments**
 
 ---
 
@@ -115,53 +115,53 @@ The project uses a custom-built e-commerce dataset created for SQL learning and 
 
 ### Basic SQL
 
-* `SELECT`
-* `WHERE`
-* `ORDER BY`
-* `LIMIT`
-* Date filtering
+- `SELECT`
+- `WHERE`
+- `ORDER BY`
+- `LIMIT`
+- Date filtering
 
 ### Aggregation
 
-* `COUNT()`
-* `SUM()`
-* `AVG()`
-* `MAX()`
-* `GROUP BY`
-* `HAVING`
+- `COUNT()`
+- `SUM()`
+- `AVG()`
+- `MAX()`
+- `GROUP BY`
+- `HAVING`
 
 ### Joins
 
-* `INNER JOIN`
-* Joining customer and order information
+- `INNER JOIN`
+- Joining customer and order information
 
 ### Conditional Logic
 
-* `CASE`
-* Customer spending classification
-* Order value classification
+- `CASE`
+- Customer spending classification
+- Order value classification
 
 ### Subqueries
 
-* Average customer spending
-* Highest-value order
-* Orders above average
+- Average customer spending
+- Highest-value order
+- Orders above average
 
 ### CTEs
 
-* Customer spending analysis
-* Monthly revenue analysis
+- Customer spending analysis
+- Monthly revenue analysis
 
 ### Window Functions
 
-* `RANK()`
-* `ROW_NUMBER()`
-* `PARTITION BY`
+- `RANK()`
+- `ROW_NUMBER()`
+- `PARTITION BY`
 
 ### SQL Objects
 
-* `VIEW`
-* Stored Procedure
+- `VIEW`
+- Stored Procedure
 
 ---
 
@@ -169,9 +169,9 @@ The project uses a custom-built e-commerce dataset created for SQL learning and 
 
 The project includes a `monthly_sales_summary` view that calculates:
 
-* Total orders
-* Total revenue
-* Average order value
+- Total orders
+- Total revenue
+- Average order value
 
 ```sql
 CREATE VIEW monthly_sales_summary AS
@@ -183,8 +183,8 @@ SELECT
 FROM orders
 GROUP BY DATE_FORMAT(order_date, '%Y-%m');
 ```
----
 
+---
 ## 🛠️ Tools Used
 
 * **MySQL** — Database creation and SQL analysis
