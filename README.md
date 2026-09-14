@@ -92,7 +92,6 @@ erDiagram
         DECIMAL payment_amount
     }
 ```
-```
 > **Note:** The current project schema connects `customers → orders`, `orders → payments`, and `sellers → products`. The `orders` table does not currently contain a product/order-item relationship, so the main analytical questions focus on customer and order data.
 
 ---
@@ -182,9 +181,9 @@ SELECT
     AVG(amount) AS average_order_value
 FROM orders
 GROUP BY DATE_FORMAT(order_date, '%Y-%m');
----
 ```
 
+---
 ---
 ## 🛠️ Tools Used
 
